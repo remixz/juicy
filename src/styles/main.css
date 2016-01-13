@@ -1,0 +1,262 @@
+/**
+ * @TODO - clean this mess up
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.view-home {
+  background-color: #fff0e6
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+    opacity: 0;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: rgba(0,0,0,0.0);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0,0,0,0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.4);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(0,0,0,0.05);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  background-color: #ffffff;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  z-index: 999999;
+}
+
+.header-connection {
+  height: 65px;
+  padding: 15px 20px;
+}
+
+.header-connection .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-color: #eaeaea;
+  display: inline-block;
+}
+
+.header-connection .overview {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.header-connection .username {
+  font-size: 14px;
+  color: #cdd0d0;
+}
+
+.header-connection .back {
+  font-size: 24px;
+  text-decoration: none;
+  color: #cdd0d0;
+  position: relative;
+  top: -5px;
+  left: -5px;
+}
+
+main {
+  margin: 25px auto;
+  width: 340px;
+  overflow-y: overlay;
+  height: calc(100vh - 25px);
+}
+
+.view-connection > main {
+  margin: 65px auto;
+  height: calc(100vh - 65px);
+}
+
+.view {
+  width: 320px;
+  margin: 10px auto;
+  padding: 0 10px;
+}
+
+.view.view-connection {
+  margin: 50px auto;
+}
+
+footer {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  color: #4E2B99;
+}
+
+.login input[type="email"], .login input[type="password"] {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.login .submit {
+  width: 300px;
+  padding: 10px;
+  margin-top: 50px;
+  border: 0;
+  background-color: #fe4f72;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.login .submit.loading {
+  background-color: #f5f5f5;
+  color: #bbbbbb;
+}
+
+.home .stream {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home .own-stream {
+  margin-bottom: 50px;
+}
+
+.home .user {
+  background-color: #ffffff;
+  padding: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top-width: 1px;
+  border-bottom: 0;
+  height: 80px;
+  width: 100%;
+}
+
+.home .user.loading {
+  background-color: #f3f3f3;
+}
+
+.home .user:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-width: 2px;
+}
+
+.home .user:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.home .user .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-color: #eaeaea;
+  position: relative;
+  top: 18px;
+  left: 5px;
+  display: inline-block;
+}
+
+.home .user a {
+  text-decoration: none;
+  width: 300px;
+  position: relative;
+  top: -11px;
+  left: -11px;
+  height: 79px;
+  display: block;
+}
+
+.home .user .overview {
+  display: inline-block;
+  position: relative;
+  top: 15px;
+  left: 10px;
+}
+
+.home .user .name {
+  color: #3a4244;
+  font-weight: 500;
+}
+
+.home .user .preview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 190px;
+  font-size: 12px;
+  color: #8690a3;
+}
+
+.message-list {
+  list-style: none;
+}
+
+.message-list .message-container {
+  margin-bottom: 30px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.message-list .message .image, .message-list .message .video {
+  background-color: #eaeaea;
+}
+
+.message-list .message img, .message-list .message video {
+  width: 300px;
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+  } 100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+.spinner {
+  text-align: center;
+  font-size: 64px;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+.home .loading, main .loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
